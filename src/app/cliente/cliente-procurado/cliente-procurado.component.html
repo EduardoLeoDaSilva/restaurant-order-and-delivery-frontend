@@ -1,0 +1,19 @@
+<!-- <div class="card distanciar-topo text-white bg-success border-primary">
+    <div class="card-header">
+      Resultado
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{cliente?.nome}}</h5>
+      <p class="card-text">Telefone:{{cliente?.telefone}} - Endereco: {{cliente?.endereco?.rua}} - {{cliente?.endereco?.numero}}</p>        
+      <button class="btn btn-primary"  (click)="botaAbrirCadastroPedidoClick()">Fazer pedido</button>
+    </div>
+  </div> -->
+
+<div class=" distanciar-topo border">
+  <div class="distanciar-topo distanciar-rodape">
+  <div class="list-group distanciar-esquerda distanciar-direita  " *ngFor="let item of listaClientesAchados">
+    <a (click)="botaAbrirCadastroPedidoClick(item)" class="list-group-item list-group-item-action">Nome: {{item.nome}} - Tel: {{item.telefone}} - Endereco: {{item.endereco.rua}} - Numero: {{item.endereco.numero}}</a>
+  </div>
+</div>
+  <app-cadastro-pedido></app-cadastro-pedido>
+</div>

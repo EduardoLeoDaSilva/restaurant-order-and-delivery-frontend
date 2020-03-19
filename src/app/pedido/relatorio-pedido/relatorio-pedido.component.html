@@ -1,0 +1,50 @@
+<div class=" border">
+  <h2 class="centralizar-titulo-grafico">Gráfico de quantidade de vendidas por meses</h2>
+  <div class="distanciar-rodape distanciar-direita distanciar-esquerda distanciar-topo">
+    <div class="grafico-estilo" style=" display: block">
+      <canvas class="grafico-estilo" baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+        [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
+      </canvas>
+    </div>
+  </div>
+</div>
+<div class="border distanciar-rodape distanciar-topo  ">
+  <div class="centralizar-titulo-grafico">
+  <h2 class="centralizar-titulo-grafico">Consultar Relatório por data</h2>
+</div>
+<div class="form-row align-items-center distanciar-direita distanciar-esquerda distanciar-rodape distanciar-topo">
+  <div class="col-sm-3 my-1">
+    <label class="sr-only" for="inlineFormInputName">Escolha a data do relatório</label>
+    <input type="date" class="form-control" id="data" name="data" #dataRelatorio>
+  </div>
+  <div class="col-auto my-1">
+    <button (click)="buscarRelatorio(dataRelatorio.value)" class="btn btn-primary">Buscar</button>
+  </div>
+</div>
+
+
+  <div class="table-responsive distanciar-direita distanciar-esquerda distanciar-rodape distanciar-topo">
+    <table aria-describedby="tabelaRelatorio" class="table table-striped table-sm tamanho-menor">
+      <thead>
+        <tr>
+          <th id="id">Id</th>
+          <th id="nome">Nome</th>
+          <th id="telefone">Telefone</th>
+          <th id="quant">Quantidade de quentinhas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of relatorio">
+          <td>{{item?.cliente?.id}}</td>
+          <td>{{item?.cliente?.nome}}</td>
+          <td>{{item?.cliente?.telefone}}</td>
+          <td>{{item?.quantidade}}</td>
+        </tr>
+      </tbody>
+
+      <div class="alert alert-success distanciar-topo" *ngIf="total != null" role="alert">
+        Total do dia: {{ total  | currency: 'BRL'}}
+      </div>
+    </table>
+  </div>
+</div>

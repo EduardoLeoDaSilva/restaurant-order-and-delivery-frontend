@@ -1,0 +1,60 @@
+<div class=" distanciar-topo border">
+<h2 class="h2 md-3 distanciar-esquerda">Cadastro de cliente</h2>
+<form class="distanciar-esquerda distanciar-direita distanciar-topo distanciar-rodape" #formCadastroCliente>
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control is-valid" id="nome" name="nome" #nome="ngModel" [(ngModel)]="cliente.nome" placeholder="Insira o nome do cliente" minlength="3" required 
+        [ngClass]="{'is-invalid': nome.invalid && (nome.dirty || nome.touched),
+        'is-valid': nome.valid && (nome.dirty || nome.touched)}">
+        <div class="valid-feedback" *ngIf="nome.valid && (nome.dirty || nome.touched)">
+          Campo válido.
+        </div>
+        <div class="invalid-feedback" *ngIf="nome.invalid &&(nome.dirty || nome.touched)">
+            Campo inválido.
+          </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="telefone">Telefone</label>
+        <input type="text" class="form-control is-valid" id="telefone" name="telefone" #telefone="ngModel" appInputDataFormat placeholder="Ex: (21)3314-8168"  [(ngModel)]="cliente.telefone" minlength="8" required 
+        [ngClass]="{'is-invalid': telefone.invalid && (telefone.dirty || telefone.touched),
+        'is-valid': telefone.valid && (telefone.dirty || telefone.touched)}">
+        <div class="valid-feedback" *ngIf="telefone.valid && (telefone.dirty || telefone.touched)">
+            Campo válido.
+        </div>
+        <div class="invalid-feedback" *ngIf="telefone.invalid && (telefone.dirty || telefone.touched)">
+            Campo inválido.
+          </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label for="rua">Rua</label>
+        <input type="text" class="form-control " placeholder="Ex: Rua A lote b " id="rua" name="rua" #rua="ngModel" [(ngModel)]="cliente.endereco.rua" minlength="5" required 
+        [ngClass]="{'is-invalid': rua.invalid && (rua.dirty || rua.touched),
+                    'is-valid': rua.valid && (rua.dirty || rua.touched)}">
+        <div class="valid-feedback" *ngIf="rua.valid && (rua.dirty || rua.touched)">
+            Campo válido.
+          </div>
+        <div class="invalid-feedback" *ngIf="rua.invalid && (rua.dirty || rua.touched)">
+          Campo inválido.
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="numero">Numero</label>
+        <input type="text" class="form-control " placeholder="Ex: 145" id="numero" name="numero" #numero="ngModel" [(ngModel)]="cliente.endereco.numero" required 
+        [ngClass]="{'is-invalid': numero.invalid && (numero.dirty || numero.touched),
+                    'is-valid': numero.valid &&(numero.dirty || numero.touched)}">
+        <div class="valid-feedback" *ngIf="numero.valid && (numero.dirty || numero.touched)">
+            Campo válido.
+          </div>
+        <div class="invalid-feedback" *ngIf="numero.invalid && (numero.dirty || numero.touched)">
+          Campo inválido
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-primary" [style.display]="(nome.invalid || rua.invalid || telefone.invalid || numero.invalid || telefone.value == '') == true ? 'block' : 'none'" (click)="validar(nome, telefone, rua,numero )">Cadastrar</button>
+    <button class="btn btn-primary" [style.display]="(!nome.invalid && !rua.invalid && !telefone.invalid && !numero.invalid|| telefone.value == '') == true ? 'block' : 'none'" (click)="cadastrar(formCadastroCliente)">Cadastrar</button>
+  </form>
+</div>

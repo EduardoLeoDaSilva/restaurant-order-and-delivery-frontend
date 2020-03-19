@@ -1,0 +1,25 @@
+.invalid-feedback{
+    display: block;
+}
+
+.valid-feedback{
+    display: block;
+}
+
+
+.distanciar-topo{
+    margin-top:  40px;
+}
+
+.distanciar-rodape{
+    margin-bottom:  40px;
+}
+
+
+.distanciar-esquerda{
+    margin-left:  40px;
+}
+
+.distanciar-direita{
+    margin-right:  40px;
+}

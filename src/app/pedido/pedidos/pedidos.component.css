@@ -1,0 +1,23 @@
+.distanciar-topo{
+    margin-top:  40px;
+}
+
+.distanciar-rodape{
+    margin-bottom:  40px;
+}
+
+
+.distanciar-esquerda{
+    margin-left:  20px;
+}
+
+.distanciar-direita{
+    margin-right:  20px;
+}
+
+.tabela-media{
+    width: 97%;
+}
+.tabela{
+    display: block;
+}

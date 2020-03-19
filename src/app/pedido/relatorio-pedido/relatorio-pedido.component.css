@@ -1,0 +1,36 @@
+.distanciar-topo{
+    margin-top:  40px;
+}
+
+.distanciar-rodape{
+    margin-bottom:  40px;
+}
+
+
+.distanciar-esquerda{
+    margin-left:  40px;
+}
+
+.distanciar-direita{
+    margin-right:  40px;
+}
+
+
+
+.tamanho-menor{
+    width: 50%;
+}
+.tabela{
+    display: block;
+}
+
+
+.centralizar-titulo-grafico{
+    margin:  20px auto;
+    
+}
+
+.grafico-estilo{
+    width: 100%;
+    height: 30%;
+}

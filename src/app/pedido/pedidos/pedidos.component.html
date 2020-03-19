@@ -1,0 +1,34 @@
+
+<h2>Pedidos de hoje</h2>
+<div class="border tabela">
+<table class="table table-striped distanciar-topo  tabela-media distanciar-esquerda distanciar-direita distancia-rodape" aria-describedby="tablePedidos">
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Telefone</th>
+        <th scope="col">Endereço</th>
+        <th scope="col">Quantidade quentinhas</th>
+        <th scope="col">Status</th>
+        <th scope="col">Alterar status</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let item of listaPedidos">
+      <tr>
+        <td>{{item?.cliente?.nome}}</td>
+        <td>{{item?.cliente?.telefone}}</td>
+        <td>{{item?.cliente?.endereco?.rua}} - N: {{item?.cliente?.endereco?.numero}}</td>
+        <td>{{item?.quantidade}}</td>
+        <td *ngIf="item.status == 0"><span class="badge badge-info">{{item?.status | mudaStatus}}</span></td>
+        <td *ngIf="item.status == 1"><span class="badge badge-primary">{{item?.status | mudaStatus}}</span></td>
+        <td *ngIf="item.status == 2"><span class="badge badge-success">{{item?.status | mudaStatus}}</span></td>
+        <td>
+            <select  (change)="onChangeStatus(item,selectStatus.value)" #selectStatus  class="custom-select custom-select-sm">
+                <option [selected]="item.status == 0" value="0">Em preparação.</option>
+                <option [selected]="item.status == 1" value="1">Saiu para Entrega</option>
+                <option [selected]="item.status == 2" value="2">Entregue.</option>
+              </select>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
